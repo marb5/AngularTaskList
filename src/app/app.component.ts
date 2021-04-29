@@ -7,11 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularTaskList';
-  get footer(): string { //getter stopki
-    return "© AngularTaskList, All rights reserved."
-  }
-  getDate(): Date {
-    return new Date();
+  config: { [key: string]: string | Date } = null;
+
+  constructor() {
+    this.config = {
+      title: 'AngularTaskList',
+      footer: '© AngularTaskList, All rights reserved.',
+      date: new Date()
+    }
   }
 }

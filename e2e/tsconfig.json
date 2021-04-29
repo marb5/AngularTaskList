@@ -9,5 +9,8 @@
       "jasmine",
       "node"
     ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": false
   }
 }

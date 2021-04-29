@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="row">
     <div class="nav-wrapper">
-      <span class="brand-logo center">{{ title }}</span>
+      <span class="brand-logo center">{{ title | uppercase }}</span>
     </div>
   </nav>
 
@@ -39,13 +39,14 @@
   </ul>
 
   <h1>Dzisiaj brak zadań :-)</h1>
+  <p>Data po polsku: {{ getDate() | date: 'fullDate' }}</p> //wyswietlamy date
 
   <button class="btn red">Wyczyść</button>
 
   <footer class="page-footer mt-5">
     <div class="footer-copyright">
       <div class="container">
-        {{ footer }}
+        {{ getDate() | date: 'yyyy' }} {{ footer }}
       </div>
     </div>
   </footer>

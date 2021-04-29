@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngularTaskList';
   get footer(): string { //getter stopki
-    return "2021 © AngularTaskList, All rights reserved."
+    return "© AngularTaskList, All rights reserved."
+  }
+  getDate(): Date {
+    return new Date();
   }
 }

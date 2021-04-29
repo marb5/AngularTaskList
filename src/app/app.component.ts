@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularTaskList';
+  get footer(): string { //getter stopki
+    return "2021 © AngularTaskList, All rights reserved."
+  }
 }

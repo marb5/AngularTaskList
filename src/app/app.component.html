@@ -15,10 +15,10 @@
       class="col s8"
       type="text"
       placeholder="Dodaj zadanie i datę wykonania"
-      #taskInput
-    />
+      (keyup)="onKeyUp($event)"
+    /><!--$event - przechwytuje obiekt eventu, na ktorym jest dzialanie-->
     <input class="col s2 disabled" type="date" #dateInput />
-    <button class="btn-floating">+</button>
+    <button class="btn-floating" (click)="createTask()">+</button>
   </div>
 
   <ul class="collection">        <!--*ngFor - iteruje po elementach listy-->
@@ -43,7 +43,8 @@
   <h1>Dzisiaj brak zadań :-)</h1>
   <p>Data po polsku: {{ config?.date | date: 'fullDate' }}</p> <!--wyswietlamy date-->
 
-  <button class="btn red">Wyczyść</button>
+  <button class="btn red" (click)="clearTasks()">Wyczyść</button>
+  <!--to samo co wyzej <button class="btn red" (click)="tasks = []">Wyczyść</button>-->
 
   <footer class="page-footer mt-5">
     <div class="footer-copyright">

@@ -6,8 +6,6 @@ import { registerLocaleData } from '@angular/common';
 
 import localePl from '@angular/common/locales/pl'; //pobieramy lokalizacje polski
 
-registerLocaleData(localePl);
-
 registerLocaleData(localePl); //rejestrujemy lokalizacje polski
 
 @NgModule({

@@ -15,10 +15,16 @@
       class="col s8"
       type="text"
       placeholder="Dodaj zadanie i datę wykonania"
-      (keyup)="onKeyUp($event)"
-    /><!--$event - przechwytuje obiekt eventu, na ktorym jest dzialanie-->
+      #nameInput
+    /><!--(keyup)="onKeyUp($event)"-->
+    <!--$event - przechwytuje obiekt eventu, na ktorym jest dzialanie
+    #nameInput - referencja do obiektu DOM, dostep do jego properties-->
     <input class="col s2 disabled" type="date" #dateInput />
-    <button class="btn-floating" (click)="createTask()">+</button>
+    <button class="btn-floating" (click)="createTask(nameInput.value, dateInput.value);
+      nameInput.value = '';
+      dateInput.value = '';
+    ">+</button>
+    <!--dzieki referencji #nameInput mozemy w taki sposob pobrac property value-->
   </div>
 
   <ul class="collection">        <!--*ngFor - iteruje po elementach listy-->

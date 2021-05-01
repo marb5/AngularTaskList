@@ -8,7 +8,7 @@ import { Task } from './task'; //;importujemy task.ts
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  taskName: string;
+  //taskName: string;
   config: { [key: string]: string | Date } = null;
   tasks: Task[] = [
     {
@@ -41,6 +41,7 @@ export class AppComponent {
     this.tasks = [];
   }
 
+  /*
   //co sie dzieje po wpisywaniu w pola tekstowe
   onKeyUp(event: KeyboardEvent){
     //do targeta wyciagamy obiekt dom, reprezentujacy pole tekstowe
@@ -48,12 +49,13 @@ export class AppComponent {
     const target = event.target as HTMLInputElement;
     this.taskName = target.value;
   }
+  */
 
   //metoda dodajaca zadanie do listy
-  createTask(){
+  createTask(name: string, date: Date){
     const task: Task = {
-      name: this.taskName,
-      deadline: '2021-06-30',
+      name, //skrocona wersja name: name, ts sam zorientuje sie, gdzie ma wpisac
+      deadline: date.toString(),
       done: false
     };
     this.tasks.push(task);

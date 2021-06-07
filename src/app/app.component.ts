@@ -22,7 +22,7 @@ export class AppComponent {
     {
       name: 'Angular',
       deadline: '2021-06-14',
-      done: false
+      done: true
     },
     {
       name: 'Node.js',

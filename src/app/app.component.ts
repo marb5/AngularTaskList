@@ -8,6 +8,7 @@ import { Task } from './task'; //;importujemy task.ts
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  editMode = false;
   //taskName: string;
   taskName = "Przykladowe zadanie";
   taskDate = "";
@@ -72,4 +73,8 @@ export class AppComponent {
     };
     this.tasks.push(task);
   }*/
+
+  switchEditMode() {
+    this.editMode = !this.editMode;
+  }
 }

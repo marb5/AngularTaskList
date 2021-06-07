@@ -37,6 +37,7 @@ export class AppComponent {
       footer: '© AngularTaskList, All rights reserved.',
       date: new Date()
     }
+    this.sortTasks();
   }
 
   //metoda czysci ustawia tasks na pusta liste
@@ -64,6 +65,7 @@ export class AppComponent {
     this.tasks.push(task);
     this.taskName = "";
     this.taskDate = "";
+    this.sortTasks();
   }
   /*createTask(name: string, date: Date){
     const task: Task = {
@@ -76,5 +78,20 @@ export class AppComponent {
 
   switchEditMode() {
     this.editMode = !this.editMode;
+  }
+
+  markTaskAsDone(task: Task) {
+    task.done = true;
+    this.sortTasks();
+  }
+
+  deleteTask(task: Task) {
+    this.tasks = this.tasks.filter(el => el !== task);
+    this.sortTasks();
+  }
+
+  private sortTasks() {
+    this.tasks = this.tasks.sort((a: Task, b: Task) => 
+      a.done === b.done ? 0 : a.done ? 1 : -1);
   }
 }

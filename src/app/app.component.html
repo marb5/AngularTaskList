@@ -15,21 +15,29 @@
       class="col s8"
       type="text"
       placeholder="Dodaj zadanie i datę wykonania"
-      #nameInput
-      (keyup)="0"
-    /><!--(keyup)="onKeyUp($event)"
+      [(ngModel)]="taskName"
+    /><!--
+      #nameInput //pole zastapione przez [(NgModel)]
+      (keyup)="0" //pole zastapione przez [(NgModel)]
+      (keyup)="onKeyUp($event)"
     (keyup)="0" - powyzej, aby wywolywac change detection po wpisanieu kazdej litery,
      aby przycisk dodaj mogl zmienic disabled-->
     <!--$event - przechwytuje obiekt eventu, na ktorym jest dzialanie
-    #nameInput - referencja do obiektu DOM, dostep do jego properties-->
-    <input class="col s2 disabled" type="date" (change)="0" #dateInput />
+    #nameInput - referencja do obiektu DOM, dostep do jego properties
+  
+  #dateInput-->
+    <input class="col s2 disabled" type="date" (change)="0" [(ngModel)]="taskDate" />
     <button class="btn-floating" 
+      (click)="createTask();"
+      [disabled]="taskName === '' || taskDate === '' "
+    >+</button>
+    <!--<button class="btn-floating" 
       (click)="createTask(nameInput.value, dateInput.value);
       nameInput.value = '';
       dateInput.value = '';
     "
     [disabled]="nameInput.value === '' || dateInput.value === '' "
-    >+</button>
+    >+</button>  [(NgModel)]-->
     <!--dzieki referencji #nameInput mozemy w taki sposob pobrac property value-->
   </div>
 

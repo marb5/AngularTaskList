@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
 
 import localePl from '@angular/common/locales/pl'; //pobieramy lokalizacje polski
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localePl); //rejestrujemy lokalizacje polski
 
@@ -13,7 +14,7 @@ registerLocaleData(localePl); //rejestrujemy lokalizacje polski
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [
     //ustawiamy domyslna date na polski

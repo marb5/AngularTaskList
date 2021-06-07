@@ -9,6 +9,8 @@ import { Task } from './task'; //;importujemy task.ts
 })
 export class AppComponent {
   //taskName: string;
+  taskName = "Przykladowe zadanie";
+  taskDate = "";
   config: { [key: string]: string | Date } = null;
   tasks: Task[] = [
     {
@@ -52,12 +54,22 @@ export class AppComponent {
   */
 
   //metoda dodajaca zadanie do listy
-  createTask(name: string, date: Date){
+  createTask(){
+    const task: Task = {
+      name: this.taskName, //skrocona wersja name: name, ts sam zorientuje sie, gdzie ma wpisac
+      deadline: this.taskDate,
+      done: false
+    };
+    this.tasks.push(task);
+    this.taskName = "";
+    this.taskDate = "";
+  }
+  /*createTask(name: string, date: Date){
     const task: Task = {
       name, //skrocona wersja name: name, ts sam zorientuje sie, gdzie ma wpisac
       deadline: date.toString(),
       done: false
     };
     this.tasks.push(task);
-  }
+  }*/
 }
